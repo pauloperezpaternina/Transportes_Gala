@@ -9,6 +9,7 @@ public class Carros {
 	
 	public Carros(String placa, String marca, String version, 
 			String modelo, Color color,int id, int numpuertas, int cilindraje, int puestos, int valor) {
+		super();
 		this.setPlaca(placa);
 		this.setMarca(marca);
 		this.setVersion(version);
