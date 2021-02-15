@@ -8,6 +8,9 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Frmchoferes extends JFrame {
 
@@ -33,6 +36,7 @@ public class Frmchoferes extends JFrame {
 	 * Create the frame.
 	 */
 	public Frmchoferes() {
+		setTitle("Choferes");
 		setAlwaysOnTop(true);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
@@ -44,6 +48,14 @@ public class Frmchoferes extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		JButton btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+			}
+		});
+		btnCerrar.setBounds(578, 418, 117, 25);
+		contentPane.add(btnCerrar);
 	}
-
 }
