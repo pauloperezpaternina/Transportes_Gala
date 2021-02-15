@@ -10,6 +10,6 @@ EMAIL, TELEFONO).
 ## Para clonar:
 git clone https://github.com/pauloperezpaternina/Transportes_Gala.git
 
-## Si quieres unirte al protyecto:
+## Si quieres unirte al proyecto:
 
 Realiza un fork y despues de los cambios un Pull Requests.
