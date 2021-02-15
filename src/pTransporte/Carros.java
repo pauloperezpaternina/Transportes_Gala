@@ -3,12 +3,12 @@ package pTransporte;
 import java.awt.Color;
 
 public class Carros {
-	private String placa, marca, version, modelo;
+	private String placa, marca, version, modelo, id_chofer, combustible;
 	private Color color;
 	private int id, numpuertas, cilindraje, puestos, valor;
 	
 	public Carros(String placa, String marca, String version, 
-			String modelo, Color color,int id, int numpuertas, int cilindraje, int puestos, int valor) {
+			String modelo, String id_chofer, String combustible, Color color,int id, int numpuertas, int cilindraje, int puestos, int valor) {
 		super();
 		this.setPlaca(placa);
 		this.setMarca(marca);
@@ -101,6 +101,22 @@ public class Carros {
 
 	public void setValor(int valor) {
 		this.valor = valor;
+	}
+
+	public String getId_chofer() {
+		return id_chofer;
+	}
+
+	public void setId_chofer(String id_chofer) {
+		this.id_chofer = id_chofer;
+	}
+
+	public String getCombustible() {
+		return combustible;
+	}
+
+	public void setCombustible(String combustible) {
+		this.combustible = combustible;
 	}
 	
 }
