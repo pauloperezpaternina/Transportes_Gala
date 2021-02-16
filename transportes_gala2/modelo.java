@@ -6,7 +6,7 @@
 
 /**
  *
- * @author sistemas
+ * @author Adsistemas
  */
 public class modelo {
     
