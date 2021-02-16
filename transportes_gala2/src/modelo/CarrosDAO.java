@@ -106,4 +106,16 @@ public class CarrosDAO {
         return r;
     }
     
+    public int Delete(int id){
+        int r=0;
+        String sql="delete from carros where idcarro="+id;
+        try {
+            con=conectar.getConnection();
+            ps=con.prepareStatement(sql);
+            r= ps.executeUpdate();
+        } catch (Exception e) {
+        }
+        return r;
+    }
+    
 }

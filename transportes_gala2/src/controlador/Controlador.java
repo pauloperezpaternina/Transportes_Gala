@@ -24,8 +24,9 @@ public class Controlador implements ActionListener {
         this.vista.btnlistar.addActionListener(this);
         this.vista.btnguardar.addActionListener(this);
         this.vista.btneditar.addActionListener(this);
-        this.vista.btnactualizar.addActionListener(this);
-                
+        this.vista.btnactualizar.addActionListener(this);            
+        this.vista.btneliminar.addActionListener(this);
+        this.vista.btnnuevo.addActionListener(this);
     }
 
     @Override
@@ -33,22 +34,24 @@ public class Controlador implements ActionListener {
         if(e.getSource()==vista.btnlistar){
             limpiarTabla();
             listar(vista.tabla);
+            nuevo();
         }
         if(e.getSource()==vista.btnguardar){
             agregar();
             limpiarTabla();
             listar(vista.tabla);
+            nuevo();
         }
         
         if(e.getSource()==vista.btnactualizar){
             Actualizar();
             limpiarTabla();
             listar(vista.tabla);
+            nuevo();
         }
         
         if (e.getSource() == vista.btneditar) {
             int fila = vista.tabla.getSelectedRow();
-             JOptionPane.showMessageDialog(vista, fila);
             if (fila == -1) {
                 JOptionPane.showMessageDialog(vista, "Debee Seleccionar Una fila..!!");
             } else {
@@ -79,7 +82,19 @@ public class Controlador implements ActionListener {
                 vista.txtidchofer.setText("" + idchofer);
             }
         }
+        
+        if (e.getSource() == vista.btneliminar) {
+            delete();
+            listar(vista.tabla);
+            nuevo();
+        }
+        
+        if (e.getSource() == vista.btnnuevo) {
+            nuevo();
+        }
     }
+    
+    
     
     public void agregar() {
         String placa = vista.txtplaca.getText();
@@ -151,6 +166,35 @@ public class Controlador implements ActionListener {
         }
         limpiarTabla();
         listar(vista.tabla);
+    }
+    
+    public void delete() {
+        int fila = vista.tabla.getSelectedRow();
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(vista, "Debe Seleccionar una Fila...!!!");
+        } else {
+            int idcarro = Integer.parseInt((String) vista.tabla.getValueAt(fila, 0).toString());
+            dao.Delete(idcarro);
+            System.out.println("El Resultado es" + idcarro);
+            JOptionPane.showMessageDialog(vista, "Usuario Eliminado...!!!");
+        }
+        limpiarTabla();
+    }
+    
+    void nuevo() {
+        vista.txtidcarro.setText("");
+        vista.txtplaca.setText("");
+        vista.txtmarca.setText("");
+        vista.txtversion.setText("");
+        vista.txtmodelo.setText("");
+        vista.txtcolor.setText("");
+        vista.txtnumpuertas.setText("");
+        vista.txttipocombustible.setText("");
+        vista.txtcilindraje.setText("");
+        vista.txtpuestos.setText("");
+        vista.txtvalor.setText("");
+        vista.txtidchofer.setText("");
+        vista.txtplaca.requestFocus();
     }
 
     public void listar(JTable tabla) {
