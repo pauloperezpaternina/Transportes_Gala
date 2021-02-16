@@ -57,9 +57,18 @@ public class Controlador implements ActionListener {
                 int idchofer = Integer.parseInt((String) vista.tabla.getValueAt(fila, 11).toString());
                
                 vista.txtidcarro.setText("" + idcarro);
-                /*vista.txtNom.setText(nom);
-                vista.txtCorreo.setText(correo);
-                vista.txtTel.setText(tel);*/
+                vista.txtplaca.setText(placa);
+                vista.txtmarca.setText(marca);
+                vista.txtversion.setText(version);
+                vista.txtmodelo.setText(modelo);
+                vista.txtcolor.setText(color);
+                vista.txtnumpuertas.setText("" + numpuertas);
+                vista.txttipocombustible.setText(tipocombustible);
+                vista.txtcilindraje.setText("" + cilindraje);
+                vista.txtpuestos.setText("" + puestos);
+                vista.txtvalor.setText("" + valor);
+                vista.txtidchofer.setText("" + idchofer);
+
             }
         }
     }
