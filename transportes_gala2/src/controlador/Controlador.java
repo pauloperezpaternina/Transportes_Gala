@@ -24,16 +24,25 @@ public class Controlador implements ActionListener {
         this.vista.btnlistar.addActionListener(this);
         this.vista.btnguardar.addActionListener(this);
         this.vista.btneditar.addActionListener(this);
+        this.vista.btnactualizar.addActionListener(this);
                 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==vista.btnlistar){
+            limpiarTabla();
             listar(vista.tabla);
         }
         if(e.getSource()==vista.btnguardar){
             agregar();
+            limpiarTabla();
+            listar(vista.tabla);
+        }
+        
+        if(e.getSource()==vista.btnactualizar){
+            Actualizar();
+            limpiarTabla();
             listar(vista.tabla);
         }
         
@@ -68,7 +77,6 @@ public class Controlador implements ActionListener {
                 vista.txtpuestos.setText("" + puestos);
                 vista.txtvalor.setText("" + valor);
                 vista.txtidchofer.setText("" + idchofer);
-
             }
         }
     }
@@ -104,10 +112,47 @@ public class Controlador implements ActionListener {
         } else {
             JOptionPane.showMessageDialog(vista, "Error");
         }
-        //limpiarTabla();
+        limpiarTabla();
+    }
+    
+    public void Actualizar(){
+        int idcarro = Integer.parseInt(vista.txtidcarro.getText());
+        String placa = vista.txtplaca.getText();
+        String marca = vista.txtmarca.getText();
+        String version = vista.txtversion.getText();
+        String modelo = vista.txtmodelo.getText();
+        String color = vista.txtcolor.getText();
+        Integer numpuertas = Integer.parseInt(vista.txtnumpuertas.getText());
+        String tipocombustible = vista.txttipocombustible.getText();
+        Integer cilindraje = Integer.parseInt(vista.txtcilindraje.getText());
+        int puestos = Integer.parseInt(vista.txtpuestos.getText());
+        float valor = Float.parseFloat(vista.txtvalor.getText());
+        int idchofer = Integer.parseInt(vista.txtidchofer.getText());
+        
+        c.setPlaca(placa);
+        c.setMarca(marca);
+        c.setVersion(version);
+        c.setModelo(modelo);
+        c.setColor(color);
+        c.setNumpuertas(numpuertas);
+        c.setTipocombustible(tipocombustible);
+        c.setCilindraje(cilindraje);
+        c.setPuestos(puestos);
+        c.setValor(valor);
+        c.setIdchofer(idchofer);
+        c.setIdcarro(idcarro);
+        
+        int r=dao.Actualizar(c);
+        
+        if (r == 1) {
+                JOptionPane.showMessageDialog(vista, "Carro Actualizado con Exito.");
+        }else {
+                JOptionPane.showMessageDialog(vista, "Error en actualizar");
+        }
+        limpiarTabla();
+        listar(vista.tabla);
     }
 
-    
     public void listar(JTable tabla) {
         //centrarCeldas(tabla);
         modelo = (DefaultTableModel) tabla.getModel();
@@ -131,6 +176,13 @@ public class Controlador implements ActionListener {
         }
         tabla.setRowHeight(35);
         tabla.setRowMargin(10);
+    }
+    
+    void limpiarTabla() {
+        for (int i = 0; i < vista.tabla.getRowCount(); i++) {
+            modelo.removeRow(i);
+            i = i - 1;
+        }
     }
     
 }

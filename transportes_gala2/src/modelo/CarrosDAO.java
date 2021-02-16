@@ -77,7 +77,7 @@ public class CarrosDAO {
     
     public int Actualizar(Carros c) {  
         int r=0;
-        String sql="update carrros set placa=?,marca=?,version=?,modelo=?,color=?,numpuertas=?,tipocombustible=?,cilindraje=?,puestos=?,valor=?,idchofer=? where idcarro=?";
+        String sql="update carros set placa=?,marca=?,version=?,modelo=?,color=?,numpuertas=?,tipocombustible=?,cilindraje=?,puestos=?,valor=?,idchofer=? where idcarro=?";
         try {
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);  
