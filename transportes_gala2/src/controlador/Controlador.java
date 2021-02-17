@@ -12,10 +12,13 @@ import javax.swing.table.DefaultTableModel;
 import modelo.CarrosDAO;
 import modelo.Carros;
 import vista.carros;
+import vista.principal;
+import controlador.Controlador;
 
 public class Controlador implements ActionListener {
     CarrosDAO dao = new CarrosDAO();
     Carros c = new Carros();
+    principal p= new principal();
     carros vista = new carros();
     DefaultTableModel modelo = new DefaultTableModel();
 
@@ -93,8 +96,6 @@ public class Controlador implements ActionListener {
             nuevo();
         }
     }
-    
-    
     
     public void agregar() {
         String placa = vista.txtplaca.getText();
