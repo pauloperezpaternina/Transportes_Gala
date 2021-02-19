@@ -18,9 +18,11 @@ import controlador.Controlador;
 public class Controlador implements ActionListener {
     CarrosDAO dao = new CarrosDAO();
     Carros c = new Carros();
+    
     principal p= new principal();
     carros vista = new carros();
     DefaultTableModel modelo = new DefaultTableModel();
+    
 
     public Controlador(carros v) {
         this.vista=v;
@@ -29,7 +31,7 @@ public class Controlador implements ActionListener {
         this.vista.btneditar.addActionListener(this);
         this.vista.btnactualizar.addActionListener(this);            
         this.vista.btneliminar.addActionListener(this);
-        this.vista.btnnuevo.addActionListener(this);
+        this.vista.btnnuevo.addActionListener(this); 
     }
 
     @Override
@@ -182,7 +184,7 @@ public class Controlador implements ActionListener {
         limpiarTabla();
     }
     
-    void nuevo() {
+    public void nuevo() {
         vista.txtidcarro.setText("");
         vista.txtplaca.setText("");
         vista.txtmarca.setText("");

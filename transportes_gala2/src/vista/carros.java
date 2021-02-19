@@ -6,7 +6,8 @@
 package vista;
 
 import controlador.Controlador;
-
+import java.awt.event.ActionListener;
+    
 /**
  *
  * @author Adsistemas
@@ -376,7 +377,7 @@ public class carros extends javax.swing.JFrame {
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void btnlistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlistarActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnlistarActionPerformed
 
     /**
