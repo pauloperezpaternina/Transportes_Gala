@@ -6,11 +6,19 @@
 package vista;
 
 import controlador.Controlador;
+import javax.swing.JOptionPane;
 
+import modelo.Choferes;
+import modelo.ChoferesDAO;
+import modelo.Conexion;
 /**
  *
  * @author Adsistemas
  */
+
+
+
+
 public class choferes extends javax.swing.JFrame {
 
     /**
@@ -155,11 +163,11 @@ public class choferes extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(5, 5, 5)
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtidchofer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -202,6 +210,11 @@ public class choferes extends javax.swing.JFrame {
         jLabel1.setText("Choferes");
 
         btnnuevo.setText("Nuevo");
+        btnnuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnnuevoActionPerformed(evt);
+            }
+        });
 
         btnguardar.setText("Guardar");
         btnguardar.addActionListener(new java.awt.event.ActionListener() {
@@ -326,21 +339,34 @@ public class choferes extends javax.swing.JFrame {
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void btnlistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlistarActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(rootPane, "Hola");
     }//GEN-LAST:event_btnlistarActionPerformed
 
     private void txtidchoferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidchoferActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtidchoferActionPerformed
 
+    private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
+        this.txtidchofer.setText("");
+        this.txtcc.setText("");
+        this.txtnombre.setText("");
+        this.txtapellido.setText("");
+        this.txtgenero.setText("");
+        this.txtfechanacimiento.setText("");
+        this.txtemail.setText("");
+        this.txttelefono.setText("");
+        this.txtpassword.setText("");
+        this.txtcc.requestFocus();  
+    }//GEN-LAST:event_btnnuevoActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        choferes v= new choferes();
+        choferes vv= new choferes();
        // Controlador c = new Controlador(v);
-        v.setVisible(true);
-        v.setLocationRelativeTo(v);
+        vv.setVisible(true);
+        vv.setLocationRelativeTo(vv);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -366,14 +392,14 @@ public class choferes extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     public javax.swing.JTable tabla;
-    private javax.swing.JTextField txtapellido;
-    private javax.swing.JTextField txtcc;
-    private javax.swing.JTextField txtemail;
-    private javax.swing.JTextField txtfechanacimiento;
-    private javax.swing.JTextField txtgenero;
-    private javax.swing.JTextField txtidchofer;
-    private javax.swing.JTextField txtnombre;
-    private javax.swing.JTextField txtpassword;
-    private javax.swing.JTextField txttelefono;
+    public javax.swing.JTextField txtapellido;
+    public javax.swing.JTextField txtcc;
+    public javax.swing.JTextField txtemail;
+    public javax.swing.JTextField txtfechanacimiento;
+    public javax.swing.JTextField txtgenero;
+    public javax.swing.JTextField txtidchofer;
+    public javax.swing.JTextField txtnombre;
+    public javax.swing.JTextField txtpassword;
+    public javax.swing.JTextField txttelefono;
     // End of variables declaration//GEN-END:variables
 }

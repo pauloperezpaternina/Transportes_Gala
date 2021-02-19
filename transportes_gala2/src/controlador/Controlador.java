@@ -12,26 +12,47 @@ import javax.swing.table.DefaultTableModel;
 import modelo.CarrosDAO;
 import modelo.Carros;
 import vista.carros;
+
+import vista.choferes;
+import modelo.ChoferesDAO;
+import modelo.Choferes;
 import vista.principal;
+
 import controlador.Controlador;
 
 public class Controlador implements ActionListener {
     CarrosDAO dao = new CarrosDAO();
     Carros c = new Carros();
     
+    ChoferesDAO chdao = new ChoferesDAO();
+    Choferes ch = new Choferes();
+    
     principal p= new principal();
+    
     carros vista = new carros();
+    choferes vistach = new choferes();
     DefaultTableModel modelo = new DefaultTableModel();
     
 
     public Controlador(carros v) {
         this.vista=v;
+       // this.vistach=vv;
+        
         this.vista.btnlistar.addActionListener(this);
         this.vista.btnguardar.addActionListener(this);
         this.vista.btneditar.addActionListener(this);
         this.vista.btnactualizar.addActionListener(this);            
         this.vista.btneliminar.addActionListener(this);
         this.vista.btnnuevo.addActionListener(this); 
+        
+        this.vistach.btnlistar.addActionListener(this);
+        this.vistach.btnguardar.addActionListener(this);
+        this.vistach.btneditar.addActionListener(this);
+        this.vistach.btnactualizar.addActionListener(this);            
+        this.vistach.btneliminar.addActionListener(this);
+        this.vistach.btnnuevo.addActionListener(this); 
+        
+        
     }
 
     @Override

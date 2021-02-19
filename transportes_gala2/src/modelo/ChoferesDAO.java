@@ -100,7 +100,7 @@ public class ChoferesDAO {
     
     public int Delete(int id){
         int r=0;
-        String sql="delete from carros where idcarro="+id;
+        String sql="delete from choferes where idchofer="+id;
         try {
             con=conectar.getConnection();
             ps=con.prepareStatement(sql);
